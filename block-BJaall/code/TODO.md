@@ -23,16 +23,40 @@ step-4: Now we will repeat the step 1, 2 and 3 but we will keep in mind not to t
 2. Create a function named `bubbleSort` that accepts an array of numbers and returns the array with sorted values. The elements should be in ascending order. Use the bubble sorting algorithms. After writing the function test it with an array and check if you are getting the right output.
 
 ```js
-function bubbleSort() {
+function bubbleSort(inputArr) {
   // your code
+  let len = inputArr.length;
+  for (let i = 0; i < len; i++) {
+    for (let j = 0; j < len; j++) {
+      if (inputArr[j] > inputArr[j + 1]) {
+        let tmp = inputArr[j];
+        inputArr[j] = inputArr[j + 1];
+        inputArr[j + 1] = tmp;
+      }
+    }
+  }
+  return inputArr;
 }
 ```
 
 3. Create a function named `selectionSort` that accepts an array of numbers and returns the array with sorted values. The elements should be in ascending order. Use the selection sorting algorithms. After writing the function test it with an array and check if you are getting the right output.
 
 ```js
-function selectionSort() {
+function selectionSort(array) {
   // your code
+  for (var i = 0; i < array.length; i++) {
+    //set min to the current iteration of i
+    var min = i;
+    for (var j = i + 1; j < array.length; j++) {
+      if (array[j] < array[min]) {
+        min = j;
+      }
+    }
+    var temp = array[i];
+    array[i] = array[min];
+    array[min] = temp;
+  }
+  return array;
 }
 ```
 
