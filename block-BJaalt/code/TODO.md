@@ -35,6 +35,20 @@ Output: 3
 
 ```js
 // Test
+
+function getAllPrimeNumbers(num) {
+  for (let i = 2; i <= num; i++) {
+    for (let j = 2; j <= i; j++) {
+      if (i === j) {
+        console.log(i);
+      }
+      if (i % j === 0) {
+        break;
+      }
+    }
+  }
+}
+
 let primeNumbers = getAllPrimeNumbers(100); // [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 ```
 
@@ -46,5 +60,13 @@ Example:
 
 ```js
 // Test
+
+function reverseWords(str) {
+  return str
+    .split("")
+    .map((e) => e.split("").reverse().join(""))
+    .join("");
+}
+
 reverseWords("I love JavaScript!"); // "I evol !tpircSavaJ"
 ```
