@@ -12,6 +12,38 @@ Using the linked list class you created in the previous exercise implement stack
 ```js
 class Stack {
   // your code goes here
+  constructor(capacity) {
+    this.storage = [];
+    this.capacity = capacity ? capacity : Infinity;
+  }
+
+  get length() {
+    return this.storage.length;
+  }
+
+  add = (num) => {
+    console.log(this.length);
+    if (this.length < this.capacity) {
+      this.storage.push(num);
+      return this.length;
+    }
+    return alert(`Stack is overflowing`);
+  };
+  remove = () => {
+    return this.storage.pop();
+  };
+  peek = () => {
+    return this.storage[this.storage.length - 1];
+  };
+  printAll = () => {
+    this.storage.forEach((e) => console.log(e));
+  };
+  isEmpty = () => {
+    if (this.storage.length < 1) {
+      return true;
+    }
+    return false;
+  };
 }
 
 // Test 1
@@ -58,6 +90,36 @@ console.log(stack.isEmpty()); // true
 ```js
 class Queue {
   // your code goes here
+  constructor(capacity = Infinity) {
+    this.storage = {};
+    this.capacity = capacity;
+  }
+
+  get length() {
+    return Object.keys(this.storage).length;
+  }
+
+  enqueue = (num) => {
+    this.storage[Object.keys(this.storage).length] = num;
+    return this.length;
+  };
+  dequeue = () => {
+    let a = this.storage[Object.keys(this.storage)[0]];
+    delete this.storage[Object.keys(this.storage)[0]];
+    return a;
+  };
+  peek = () => {
+    return this.storage[Object.keys(this.storage)[0]];
+  };
+  printAll = () => {
+    Object.keys(this.storage).forEach((e) => console.log(this.storage[e]));
+  };
+  isEmpty = () => {
+    if (Object.keys(this.storage).length > 1) {
+      return false;
+    }
+    return true;
+  };
 }
 
 // Test 1
